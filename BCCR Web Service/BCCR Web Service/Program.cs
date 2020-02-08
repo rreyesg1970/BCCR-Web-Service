@@ -24,12 +24,15 @@ namespace BCCR_Web_Service
         {
             string ruta = Directory.GetCurrentDirectory();
             string fechaConsultar = DateTime.Now.ToShortDateString();
+            string usuario = "su usuario";
+            string correo = "su correo";
+            string token = "su token";
 
             //  (https://gee.bccr.fi.cr/Indicadores/Suscripciones/WS/wsindicadoreseconomicos.asmx);
 
             cr.fi.bccr.gee.wsindicadoreseconomicos cliente = new cr.fi.bccr.gee.wsindicadoreseconomicos();
-            DataSet dsVenta = cliente.ObtenerIndicadoresEconomicos("318", fechaConsultar, fechaConsultar, "Roberto Reyes G", "N", "rreyes2005g@gmail.com", "LITPIM2M2I");
-            DataSet dsCompra = cliente.ObtenerIndicadoresEconomicos("317", fechaConsultar, fechaConsultar, "Roberto Reyes G", "N", "rreyes2005g@gmail.com", "LITPIM2M2I");
+            DataSet dsVenta = cliente.ObtenerIndicadoresEconomicos("318", fechaConsultar, fechaConsultar, usuario, "N", correo, token);
+            DataSet dsCompra = cliente.ObtenerIndicadoresEconomicos("317", fechaConsultar, fechaConsultar, usuario, "N", correo, token);
 
             Console.WriteLine("Fecha Consulta: " + dsVenta.Tables[0].Rows[0].ItemArray[1].ToString());
             Console.WriteLine();
